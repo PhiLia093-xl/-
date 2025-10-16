@@ -307,11 +307,11 @@ Transform:
   m_GameObject: {fileID: 1013442172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.54, y: -1.05, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.170676, y: 17.119682, z: -10}
+  m_LocalScale: {x: 9.726995, y: 8.916501, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1486101541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1013442174
 AudioListener:
@@ -405,7 +405,8 @@ Transform:
   m_LocalPosition: {x: -0.7, y: -2.97, z: 0}
   m_LocalScale: {x: 0.102806665, y: 0.11215162, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1013442173}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1486101547
@@ -525,7 +526,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1486101551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -891,7 +892,6 @@ BoxCollider2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1013442173}
   - {fileID: 1486101541}
   - {fileID: 1846239083}
   - {fileID: 772674939}
