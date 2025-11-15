@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float dashSpeed = 20;
-    [SerializeField] private float baseJumpForce = 5f;
-    [SerializeField] private float maxJumpForce = 20f;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float dashSpeed = 5;
+    [SerializeField] private float baseJumpForce = 2f;
+    [SerializeField] private float maxJumpForce = 10f;
     [SerializeField] private float maxDashTime = 1;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] Transform groundDetector;
+    [SerializeField] Vector2 groundDetectSize;
     private bool isKeyDown = false;
     private float jumpTimer = 0f;
     private bool isDashing = false;
@@ -51,16 +53,18 @@ public class PlayerMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && h != 0)
             isDashing = true;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        Collider2D[] cols = Physics2D.OverlapBoxAll(groundDetector.position, groundDetectSize, 0, LayerMask.GetMask("Ground"));
+        if (Input.GetKeyDown(KeyCode.Space) && cols.Length > 0)
         {
             isKeyDown = true;
         }
+        
         if (isKeyDown)
         {
             jumpTimer += Time.deltaTime;
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                
                 float jumpForce = baseJumpForce + jumpTimer * 3;
                 jumpForce = jumpForce > maxJumpForce ? maxJumpForce : jumpForce;
                 rb.AddForce(new Vector2(0, jumpForce * 100));
@@ -73,4 +77,14 @@ public class PlayerMove : MonoBehaviour
         else
             rb.gravityScale = 1;
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, groundDetectSize.y),groundDetector.position + new Vector3(-groundDetectSize.x, groundDetectSize.y));
+        Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x,-groundDetectSize.y),groundDetector.position + new Vector3(-groundDetectSize.x ,- groundDetectSize.y));
+        Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, groundDetectSize.y), groundDetector.position + new Vector3(groundDetectSize.x, -groundDetectSize.y));
+        Gizmos.DrawLine(groundDetector.position + new Vector3(-groundDetectSize.x, groundDetectSize.y), groundDetector.position + new Vector3(-groundDetectSize.x, -groundDetectSize.y));
+    }
+
+
 }
