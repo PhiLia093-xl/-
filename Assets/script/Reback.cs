@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Reback : MonoBehaviour
 {
-    public Transform PlayerNowPosition;
-    public Transform Playerposition;
+    
     public Transform Spamwpoint;
     public GameObject Pp;
     public static Reback instance { get; private set; }
@@ -16,7 +15,6 @@ public class Reback : MonoBehaviour
         {
             instance = this;
         }
-        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
