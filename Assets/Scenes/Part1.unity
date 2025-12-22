@@ -1022,7 +1022,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.7609262
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1047,7 +1047,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -7.12, y: 2.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1747,7 +1747,7 @@ Transform:
   m_GameObject: {fileID: 923157443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.17, y: 3.19, z: 0}
+  m_LocalPosition: {x: -17.46, y: -2.99, z: 0}
   m_LocalScale: {x: 0.102207124, y: 0.10947835, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4190,7 +4190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e5c7ba5ef9683439a4dfb066baa24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: LoadScene
+  levelToLoad: Part2
 --- !u!61 &2041049130
 BoxCollider2D:
   m_ObjectHideFlags: 0
