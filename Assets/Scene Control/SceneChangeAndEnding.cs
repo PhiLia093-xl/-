@@ -15,6 +15,10 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene("Set");
     }
+    public void ToStart()
+    {
+        SceneManager.LoadScene("Start");
+    }
     public void ExitGame()
     {
         Application.Quit();
