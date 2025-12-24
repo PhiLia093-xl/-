@@ -58,13 +58,13 @@ public class PlayerMove : MonoBehaviour
         {
             isKeyDown = true;
         }
-        
+
         if (isKeyDown)
         {
             jumpTimer += Time.deltaTime;
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                
+
                 float jumpForce = baseJumpForce + jumpTimer * 3;
                 jumpForce = jumpForce > maxJumpForce ? maxJumpForce : jumpForce;
                 rb.AddForce(new Vector2(0, jumpForce * 100));
@@ -80,11 +80,12 @@ public class PlayerMove : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, groundDetectSize.y),groundDetector.position + new Vector3(-groundDetectSize.x, groundDetectSize.y));
-        Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x,-groundDetectSize.y),groundDetector.position + new Vector3(-groundDetectSize.x ,- groundDetectSize.y));
+        Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, groundDetectSize.y), groundDetector.position + new Vector3(-groundDetectSize.x, groundDetectSize.y));
+        Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, -groundDetectSize.y), groundDetector.position + new Vector3(-groundDetectSize.x, -groundDetectSize.y));
         Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, groundDetectSize.y), groundDetector.position + new Vector3(groundDetectSize.x, -groundDetectSize.y));
         Gizmos.DrawLine(groundDetector.position + new Vector3(-groundDetectSize.x, groundDetectSize.y), groundDetector.position + new Vector3(-groundDetectSize.x, -groundDetectSize.y));
     }
 
 
 }
+
