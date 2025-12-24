@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Choose.unity
     guid: 28ffca76cfa1f9b48b162241793b4e77
   - enabled: 1
+    path: Assets/Scenes/Teach.unity
+    guid: c6d984c56564e8346903a93e2e81636e
+  - enabled: 1
     path: Assets/Scenes/Set.unity
     guid: 575944af561ece34586c4d67df54494a
   - enabled: 1
