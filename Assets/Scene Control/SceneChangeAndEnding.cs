@@ -19,6 +19,10 @@ public class Button : MonoBehaviour
     {
         SceneManager.LoadScene("Start");
     }
+    public void ToTeach()
+    {
+        SceneManager.LoadScene("Teach");
+    }
     public void ExitGame()
     {
         Application.Quit();
