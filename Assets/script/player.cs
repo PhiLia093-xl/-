@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
+    AudioSource audioS;
+    public AudioClip running;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float dashSpeed = 5;
     [SerializeField] private float baseJumpForce = 2f;
@@ -19,6 +21,7 @@ public class PlayerMove : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private void Start()
     {
+        audioS = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,6 +31,14 @@ public class PlayerMove : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * horizontal, rb.velocity.y);
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        if (speed >= 0.01f)
+        {
+            audioS.clip = running;
+            audioS.Play();
+        }
+        
+        
+        
         if (rb.velocity.x > 0)
         {
             spriteRenderer.flipX = false;
