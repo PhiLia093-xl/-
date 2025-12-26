@@ -6,7 +6,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public GameObject PausePanel;
-    public Canvas targetCanvas;
+    private Canvas targetCanvas;
     private bool isPaused = false;
     void Start()
     {
@@ -23,9 +23,7 @@ public class PauseManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
-            if (targetCanvas.sortingLayerName == "pause")
-                targetCanvas.sortingLayerName = "background";
-            else targetCanvas.sortingLayerName = "pause";
+            
             
         }
     }
@@ -37,7 +35,13 @@ public class PauseManager : MonoBehaviour
         PausePanel.SetActive(isPaused);
 
         Time.timeScale = isPaused ? 0f : 1f;
+
+        if (targetCanvas.sortingLayerName == "pause")
+            targetCanvas.sortingLayerName = "background";
+        else targetCanvas.sortingLayerName = "pause";
     }
+
+    
 
     
     
