@@ -1,17 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PauseManager : MonoBehaviour
 {
-    public GameObject pausePanel;
+    public GameObject PausePanel;
     public Canvas targetCanvas;
     private bool isPaused = false;
-
     void Start()
     {
         isPaused = false;
-        pausePanel.SetActive(false);
+        PausePanel.SetActive(false);
         Time.timeScale = 1f;
         if (targetCanvas == null)
             targetCanvas = GetComponent<Canvas>();
@@ -34,7 +34,7 @@ public class PauseManager : MonoBehaviour
     {
         isPaused = !isPaused;
 
-        pausePanel.SetActive(isPaused);
+        PausePanel.SetActive(isPaused);
 
         Time.timeScale = isPaused ? 0f : 1f;
     }
