@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class PlayerMove : MonoBehaviour
@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
             if (dashTimer >= maxDashTime)
             {
                 isDashing = false;
-                dashTimer = 0f;
+                animator.SetBool("IsDashing", false);
             }
         }
         else
@@ -58,7 +58,17 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = new Vector2(h * speed, rb.velocity.y);
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && h != 0)
+        {
             isDashing = true;
+            dashTimer = 0f;
+            animator.SetBool("IsDashing", true);
+
+        }
+       
+
+        // 控制 Speed 参数（用于 Run 动画）
+        float speedAbs = Mathf.Abs(rb.velocity.x);
+        animator.SetFloat("Speed", isDashing ? 1f : speedAbs); // 冲刺时不依赖速度值
         Collider2D[] cols = Physics2D.OverlapBoxAll(groundDetector.position, groundDetectSize, 0, LayerMask.GetMask("Ground"));
         if (Input.GetKeyDown(KeyCode.Space) && cols.Length > 0)
         {
