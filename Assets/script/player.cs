@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     
@@ -18,6 +20,8 @@ public class PlayerMove : MonoBehaviour
     private float dashTimer = 0f;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    public AudioMixer WalkSound;
+    private float volume;
     private void Start()
     {
         
@@ -92,6 +96,8 @@ public class PlayerMove : MonoBehaviour
             rb.gravityScale = 2;
         else
             rb.gravityScale = 1;
+
+        WalkingAudio(horizontal, volume, cols);
     }
     private void OnDrawGizmos()
     {
@@ -100,6 +106,20 @@ public class PlayerMove : MonoBehaviour
         Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, -groundDetectSize.y), groundDetector.position + new Vector3(-groundDetectSize.x, -groundDetectSize.y));
         Gizmos.DrawLine(groundDetector.position + new Vector3(groundDetectSize.x, groundDetectSize.y), groundDetector.position + new Vector3(groundDetectSize.x, -groundDetectSize.y));
         Gizmos.DrawLine(groundDetector.position + new Vector3(-groundDetectSize.x, groundDetectSize.y), groundDetector.position + new Vector3(-groundDetectSize.x, -groundDetectSize.y));
+    }
+    
+    public void WalkingAudio(float horizontal,float volume, Collider2D[] cols)
+    {
+        horizontal = Input.GetAxis("Horizontal");
+        cols = Physics2D.OverlapBoxAll(groundDetector.position, groundDetectSize, 0, LayerMask.GetMask("Ground"));
+        if (cols.Length > 0 && (horizontal > 0 || horizontal < 0))
+        {
+            WalkSound.SetFloat("WalkingSound", 20);
+        }
+        else
+        {
+            WalkSound.SetFloat("WalkingSound", -80);
+        }
     }
 
 
