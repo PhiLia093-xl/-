@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     private bool JumpJudge = false;
     public float ShakeTime;
     public float ShakeMagnitude;
+    public float FallTime;
     public CameraShakeManager cameraShake;
     private bool UpJudge = false;
     private float WaitTime = 0;
@@ -26,7 +27,6 @@ public class CameraController : MonoBehaviour
         if (JumpJudge && (Input.GetKeyUp(KeyCode.Space) || cols.Length <= 0))
         {
             UpJudge = true;
-            WaitTime = ShakeTime - 0.1f;
         }
 
         if (UpJudge)
@@ -34,11 +34,16 @@ public class CameraController : MonoBehaviour
             WaitTime += Time.deltaTime;
         }
 
-        if (UpJudge && cols.Length > 0 && WaitTime > ShakeTime)
+        if (UpJudge && cols.Length > 0 && WaitTime > FallTime)
         {
             StartCoroutine(cameraShake.CameraShake(ShakeTime, ShakeMagnitude));
             JumpJudge = false;
             UpJudge = false;
+            WaitTime = 0;
+        }
+
+        if(cols.Length > 0)
+        {
             WaitTime = 0;
         }
     }
