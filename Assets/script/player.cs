@@ -114,7 +114,7 @@ public class PlayerMove : MonoBehaviour
         cols = Physics2D.OverlapBoxAll(groundDetector.position, groundDetectSize, 0, LayerMask.GetMask("Ground"));
         if (cols.Length > 0 && (horizontal > 0 || horizontal < 0))
         {
-            WalkSound.SetFloat("WalkingSound", 20);
+            WalkSound.SetFloat("WalkingSound", 0);
         }
         else
         {
