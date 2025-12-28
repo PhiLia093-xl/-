@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     public AudioMixer WalkSound;
+    
     private float volume;
     private void Start()
     {
