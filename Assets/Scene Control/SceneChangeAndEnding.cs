@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Button : MonoBehaviour
+public class SceneChangeAndEnding : MonoBehaviour
 {
 
     public void StartToChoose()
