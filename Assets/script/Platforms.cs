@@ -8,7 +8,7 @@ public class Platforms : MonoBehaviour
     [SerializeField] private float speed = 2f;
 
     private int pointNum = 1;
-    private float waitTime = 2.0f;
+    [SerializeField] private float waitTime = 2.0f;
 
     void Update()
     {
