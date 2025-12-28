@@ -640,6 +640,7 @@ MonoBehaviour:
   groundDetectSize: {x: 0.3, y: 0.1}
   ShakeTime: 0.1
   ShakeMagnitude: 0.2
+  FallTime: 1
   cameraShake: {fileID: 519420033}
 --- !u!1 &90303945
 GameObject:

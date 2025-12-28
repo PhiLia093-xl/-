@@ -483,7 +483,6 @@ Transform:
   m_Children:
   - {fileID: 2092549913}
   - {fileID: 1944788894}
-  - {fileID: 1911890877}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &283371878
@@ -2437,7 +2436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e5c7ba5ef9683439a4dfb066baa24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Start
 --- !u!61 &1221650865
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3438,12 +3436,12 @@ Transform:
   m_GameObject: {fileID: 1911890876}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 78.7544, y: 35.395985, z: -10}
-  m_LocalScale: {x: 9.639461, y: 8.591259, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 838070109}
-  m_Father: {fileID: 152795189}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1911890878
 MonoBehaviour:
@@ -3461,6 +3459,7 @@ MonoBehaviour:
   groundDetectSize: {x: 0.3, y: 0.1}
   ShakeTime: 0.1
   ShakeMagnitude: 0.2
+  FallTime: 1
   cameraShake: {fileID: 838070110}
 --- !u!1 &1913154622
 GameObject:
@@ -4195,6 +4194,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1230568159}
   - {fileID: 731336882}
+  - {fileID: 1911890877}
   - {fileID: 152795189}
   - {fileID: 1695286403}
   - {fileID: 874058255}
