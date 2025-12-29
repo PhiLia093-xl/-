@@ -19,14 +19,28 @@ public class PlayerLife : MonoBehaviour
             Death();
         }
     }
-    private void Death()
-    {
-        rb.bodyType = RigidbodyType2D.Static;
-        anim.SetTrigger("death");
-    }
-    private void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    public Transform respawnPoint;  // 复活点
 
-    }
+private void Death()
+{
+    rb.bodyType = RigidbodyType2D.Static;
+    anim.SetTrigger("death");
+    Invoke(nameof(Respawn), 1f);  // 等待动画结束
+}
+
+private void Respawn()
+{
+    rb.bodyType = RigidbodyType2D.Dynamic;
+
+    // 移动到复活点
+    transform.position = respawnPoint.position;
+
+    // 重置速度
+    rb.velocity = Vector2.zero;
+
+    // 可以重置动画状态
+    anim.ResetTrigger("death");
+    anim.Play("Idle"); // 或者其它默认动画
+}
+
 }

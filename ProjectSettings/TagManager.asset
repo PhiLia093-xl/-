@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Trap
   - SpringBed
+  - Star
+  - FireSeed
   layers:
   - Default
   - TransparentFX

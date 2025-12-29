@@ -21,7 +21,8 @@ public class PlayerMove : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     public AudioMixer WalkSound;
-    
+   
+
     private float volume;
     private void Start()
     {
@@ -35,10 +36,7 @@ public class PlayerMove : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * horizontal, rb.velocity.y);
         animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
-        
-        
-        
-        
+     
         if (rb.velocity.x > 0)
         {
             spriteRenderer.flipX = false;
@@ -75,7 +73,8 @@ public class PlayerMove : MonoBehaviour
         float speedAbs = Mathf.Abs(rb.velocity.x);
         animator.SetFloat("Speed", isDashing ? 1f : speedAbs); // 冲刺时不依赖速度值
         Collider2D[] cols = Physics2D.OverlapBoxAll(groundDetector.position, groundDetectSize, 0, LayerMask.GetMask("Ground"));
-        if (Input.GetKeyDown(KeyCode.Space) && cols.Length > 0)
+        // 检测按下跳跃键（Space 或 W）
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && cols.Length > 0)
         {
             isKeyDown = true;
         }
@@ -83,9 +82,8 @@ public class PlayerMove : MonoBehaviour
         if (isKeyDown)
         {
             jumpTimer += Time.deltaTime;
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W))
             {
-
                 float jumpForce = baseJumpForce + jumpTimer * 3;
                 jumpForce = jumpForce > maxJumpForce ? maxJumpForce : jumpForce;
                 rb.AddForce(new Vector2(0, jumpForce * 100));
@@ -93,6 +91,7 @@ public class PlayerMove : MonoBehaviour
                 isKeyDown = false;
             }
         }
+
         if (rb.velocity.y < 0)
             rb.gravityScale = 2;
         else
@@ -122,6 +121,8 @@ public class PlayerMove : MonoBehaviour
             WalkSound.SetFloat("WalkingSound", -80);
         }
     }
+    
+
 
 
 }
