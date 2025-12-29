@@ -1,55 +1,124 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
+[System.Serializable]
+public class SaveData
+{
+    public List<string> collectedIDs;
+    public int starCount;
+    public int fireSeedCount;
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public int currentStarCount = 0;
-    public int totalStarCount = 0;
+    public int currentStarCount;
+    public int currentFireSeedCount;
 
-    public int currentFireSeedCount = 0;
-    public int totalFireSeedCount = 0;
+    private List<string> collectedIDs = new List<string>();
 
-    public TextMeshProUGUI starText;
-    public TextMeshProUGUI fireSeedText;
+    private TextMeshProUGUI starText;
+    private TextMeshProUGUI fireSeedText;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            LoadData();
+        }
         else Destroy(gameObject);
     }
 
-    private void Start()
+    public void BindUI(TextMeshProUGUI starUI, TextMeshProUGUI fireSeedUI)
     {
-        // 统计场景中所有星穹和火种数量
-        totalStarCount = GameObject.FindGameObjectsWithTag("Star").Length;
-        totalFireSeedCount = GameObject.FindGameObjectsWithTag("FireSeed").Length;
-
+        starText = starUI;
+        fireSeedText = fireSeedUI;
         UpdateUI();
     }
 
-    public void AddStar(int amount)
+    public void AddStar(string id)
     {
-        currentStarCount += amount;
-        UpdateUI();
+        if (!collectedIDs.Contains(id))
+        {
+            collectedIDs.Add(id);
+            currentStarCount++;
+            SaveData();
+            UpdateUI();
+        }
     }
 
-    public void AddFireSeed(int amount)
+    public void AddFireSeed(string id)
     {
-        currentFireSeedCount += amount;
-        UpdateUI();
+        if (!collectedIDs.Contains(id))
+        {
+            collectedIDs.Add(id);
+            currentFireSeedCount++;
+            SaveData();
+            UpdateUI();
+        }
+    }
+
+    public bool IsCollected(string id)
+    {
+        return collectedIDs.Contains(id);
     }
 
     private void UpdateUI()
     {
         if (starText != null)
-        {
-            starText.text = currentStarCount + " / " + totalStarCount;
-        }
+            starText.text = currentStarCount + " / " + FindTotal("Star");
         if (fireSeedText != null)
+            fireSeedText.text = currentFireSeedCount + " / " + FindTotal("FireSeed");
+    }
+
+    private int FindTotal(string tag)
+    {
+        return GameObject.FindGameObjectsWithTag(tag).Length + CollectedCountOfTag(tag);
+    }
+
+    private int CollectedCountOfTag(string tag)
+    {
+        int count = 0;
+        foreach (string id in collectedIDs)
+            if (id.StartsWith(tag)) count++;
+        return count;
+    }
+
+    public void ResetAll()
+    {
+        collectedIDs.Clear();
+        currentStarCount = 0;
+        currentFireSeedCount = 0;
+        SaveData();
+        UpdateUI();
+    }
+
+    public void SaveData()
+    {
+        SaveData data = new SaveData();
+        data.collectedIDs = collectedIDs;
+        data.starCount = currentStarCount;
+        data.fireSeedCount = currentFireSeedCount;
+
+        string json = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString("CollectSave", json);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadData()
+    {
+        if (PlayerPrefs.HasKey("CollectSave"))
         {
-            fireSeedText.text = currentFireSeedCount + " / " + totalFireSeedCount;
+            string json = PlayerPrefs.GetString("CollectSave");
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            collectedIDs = data.collectedIDs != null ? data.collectedIDs : new List<string>();
+            currentStarCount = data.starCount;
+            currentFireSeedCount = data.fireSeedCount;
         }
     }
 }

@@ -2,14 +2,20 @@ using UnityEngine;
 
 public enum CollectibleType
 {
-    Star,
-    FireSeed
+    Star, FireSeed
 }
 
 public class Collectible : MonoBehaviour
 {
     public CollectibleType type;
+    public string uniqueID;
     public AudioClip collectSound;
+
+    private void Start()
+    {
+        if (GameManager.Instance.IsCollected(uniqueID))
+            Destroy(gameObject);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,15 +24,10 @@ public class Collectible : MonoBehaviour
             if (collectSound != null)
                 AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-            switch (type)
-            {
-                case CollectibleType.Star:
-                    GameManager.Instance.AddStar(1);
-                    break;
-                case CollectibleType.FireSeed:
-                    GameManager.Instance.AddFireSeed(1);
-                    break;
-            }
+            if (type == CollectibleType.Star)
+                GameManager.Instance.AddStar(uniqueID);
+            else
+                GameManager.Instance.AddFireSeed(uniqueID);
 
             Destroy(gameObject);
         }
