@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SendManager : MonoBehaviour
@@ -9,13 +8,12 @@ public class SendManager : MonoBehaviour
 
     private bool isDoor;
     private Transform playerTransform;
-    // Start is called before the first frame update
+
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isDoor && Input.GetKeyDown(KeyCode.S))
@@ -26,15 +24,16 @@ public class SendManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player")) // 只对玩家生效
         {
             Debug.Log("Player进入门的范围");
             isDoor = true;
         }
     }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player")) // 玩家离开范围才设 false
         {
             Debug.Log("Player离开门的范围");
             isDoor = false;
