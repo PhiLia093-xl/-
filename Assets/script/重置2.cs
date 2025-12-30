@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class 重置2: MonoBehaviour
+public class ResetButton : MonoBehaviour
 {
     public void OnResetClicked()
     {
