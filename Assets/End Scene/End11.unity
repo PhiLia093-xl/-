@@ -1060,7 +1060,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1241756187}
         m_TargetAssemblyTypeName: PartChange, Assembly-CSharp
-        m_MethodName: Part1
+        m_MethodName: Part11
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

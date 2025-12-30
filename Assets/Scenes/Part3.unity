@@ -14669,7 +14669,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5129757025802852473, guid: 898e77c7c54e1f840897729e87b433ab, type: 3}
       propertyPath: uniqueID
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5156835644229115282, guid: 898e77c7c54e1f840897729e87b433ab, type: 3}
       propertyPath: m_Sprite
