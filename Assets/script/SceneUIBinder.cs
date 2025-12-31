@@ -1,11 +1,10 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneUIBinder : MonoBehaviour
 {
-    public TextMeshProUGUI starText;
-    public TextMeshProUGUI fireSeedText;
+    public Text starText;
+    public Text fireSeedText;
 
     private void Start()
     {

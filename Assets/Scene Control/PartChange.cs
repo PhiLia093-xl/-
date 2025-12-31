@@ -45,7 +45,7 @@ public class PartChange : MonoBehaviour
     }
     public void Part10()
     {
-        SceneManager.LoadScene("Prat10");
+        SceneManager.LoadScene("Part10");
     }
     public void Part11()
     {
