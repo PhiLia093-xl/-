@@ -30,7 +30,7 @@ public class SendManager : MonoBehaviour
         {
             Debug.Log("Player进入门的范围");
             isDoor = true;
-            SendText.SetActive(true);
+            
         }
     }
 
@@ -40,7 +40,7 @@ public class SendManager : MonoBehaviour
         {
             Debug.Log("Player离开门的范围");
             isDoor = false;
-            SendText.SetActive(false);
+            
         }
     }
 }
