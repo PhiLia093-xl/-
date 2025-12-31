@@ -214,7 +214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backDoor: {fileID: 341313964}
-  SendText: {fileID: 0}
 --- !u!61 &29027053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5533,10 +5532,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1164171898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70.53381, y: 503}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 21, y: -29.13}
+  m_SizeDelta: {x: 552.65, y: 52.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849565646
 MonoBehaviour:
@@ -5551,7 +5550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.99371064, g: 0.01562428, b: 0.01562428, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5560,10 +5559,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5571,7 +5570,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6309\u4E0BE\u952E\u65CB\u8F6C\uFF0C"
+  m_Text: "\u6309\u4E0BE\u952E\u65CB\u8F6C \u8BA9\u5C0F\u7403\u8D70\u51FA\u8FF7\u5BAB"
 --- !u!222 &849565647
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10644,7 +10643,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backDoor: {fileID: 1266135209}
-  SendText: {fileID: 0}
 --- !u!61 &1162279601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17049,7 +17047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backDoor: {fileID: 1343397267}
-  SendText: {fileID: 0}
 --- !u!61 &1493376417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35483,7 +35480,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backDoor: {fileID: 155227031}
-  SendText: {fileID: 0}
 --- !u!61 &2074112400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38722,7 +38718,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backDoor: {fileID: 2121582168}
-  SendText: {fileID: 0}
 --- !u!61 &2116505008
 BoxCollider2D:
   m_ObjectHideFlags: 0
