@@ -9,7 +9,7 @@ public class SendManager : MonoBehaviour
     private bool isDoor;
     private Transform playerTransform;
 
-    public GameObject SendText;
+    
 
     void Start()
     {
