@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LevelSelectManager : MonoBehaviour
+public class LevelSelectMenu : MonoBehaviour
 {
     public Button[] levelButtons;
     public string[] levelSceneNames;

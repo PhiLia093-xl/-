@@ -12,21 +12,19 @@ public class Collectible : MonoBehaviour
     public string uniqueID;
     public AudioClip collectSound;
 
+    private string Key => type + "_" + uniqueID;
+
     private void Start()
     {
-        string key = type.ToString() + "_" + uniqueID;
-
-        if (GameManager.Instance.IsCollected(key))
-        {
+        if (GameManager.Instance.IsCollected(Key))
             Destroy(gameObject);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
-        if (collectSound != null)
+        if (collectSound)
             AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
         if (type == CollectibleType.Star)
