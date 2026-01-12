@@ -25,9 +25,9 @@ public class JellyfishSwitch : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);// 将屏幕坐标（像素位置）转换为世界坐标（场景中的 2D 位置）
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);// 从点击位置向场景发射一条 2D 射线（方向为零向量，实际是点检测）
+                                                                    // Physics2D.Raycast 在 direction 为 zero 时仍能检测到该点下的碰撞体
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 Toggle();

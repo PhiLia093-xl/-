@@ -6,18 +6,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    //为外部提供接口
 
     // levelName -> collected keys
-    private Dictionary<string, HashSet<string>> collectedByLevel =
-        new Dictionary<string, HashSet<string>>();
+    private Dictionary<string, HashSet<string>> collectedByLevel = new Dictionary<string, HashSet<string>>();
+    //对于Dictionary内部的两个变量
+    //键（Key）类型：string → 表示关卡名称（如 "Level1"）
+    //值（Value）类型：HashSet<string> → 表示该关卡中所有已收集物品的唯一 ID 集合
 
-    private string CurrentLevel => SceneManager.GetActiveScene().name;
+    private string CurrentLevel => SceneManager.GetActiveScene().name;//获取当前场景，使用=>进行动态字段实时更新
 
     // UI（旧 Text）
     private Text starText;
     private Text fireSeedText;
-
-    // ===== 兼容旧代码 =====
+    //两个可拾取物的Text
+    
     public int currentStarCount => GetStarCount(CurrentLevel);
     public int currentFireSeedCount => GetFireSeedCount(CurrentLevel);
 
@@ -28,10 +31,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        //若Instance为空那就创建一个单例并将GameManager赋值给它
         Instance = this;
-        DontDestroyOnLoad(gameObject);
-        Load();
+        DontDestroyOnLoad(gameObject);// 确保该对象在场景切换时不被销毁
+        Load();//后面写的函数
     }
 
     /* ================= 收集 ================= */
@@ -44,36 +47,39 @@ public class GameManager : MonoBehaviour
         if (!collectedByLevel.ContainsKey(CurrentLevel))
             collectedByLevel[CurrentLevel] = new HashSet<string>();
 
-        if (!collectedByLevel[CurrentLevel].Add(key))
+        if (!collectedByLevel[CurrentLevel].Add(key))//尝试对形参进行拾取，如果没有被Add的过，则进行Add
             return;
 
-        Save();
-        UpdateUI();
+        Save();//对收集进行存档，后面有写
+        UpdateUI();//更新UI
     }
 
     public bool IsCollected(string key)
     {
-        return collectedByLevel.ContainsKey(CurrentLevel) &&
-               collectedByLevel[CurrentLevel].Contains(key);
+        return collectedByLevel.ContainsKey(CurrentLevel) && collectedByLevel[CurrentLevel].Contains(key);
     }
-
+    //如果已经被拾取过，返回true
     /* ================= 统计 ================= */
 
     public int GetStarCount(string level)
     {
-        if (!collectedByLevel.ContainsKey(level)) return 0;
+        if (!collectedByLevel.ContainsKey(level)) 
+            return 0;
         int c = 0;
         foreach (var k in collectedByLevel[level])
-            if (k.StartsWith("Star_")) c++;
+            if (k.StartsWith("Star_")) 
+                c++;
         return c;
     }
 
     public int GetFireSeedCount(string level)
     {
-        if (!collectedByLevel.ContainsKey(level)) return 0;
+        if (!collectedByLevel.ContainsKey(level))
+            return 0;
         int c = 0;
         foreach (var k in collectedByLevel[level])
-            if (k.StartsWith("FireSeed_")) c++;
+            if (k.StartsWith("FireSeed_")) 
+                c++;
         return c;
     }
 
@@ -88,22 +94,19 @@ public class GameManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (starText) starText.text = currentStarCount.ToString();
-        if (fireSeedText) fireSeedText.text = currentFireSeedCount.ToString();
+        if (starText) 
+            starText.text = currentStarCount.ToString();//ToString把数字转为字符串
+        if (fireSeedText) 
+            fireSeedText.text = currentFireSeedCount.ToString();
     }
 
     /* ================= 重置 ================= */
 
-    public void ResetCurrentLevel()
-    {
-        collectedByLevel.Remove(CurrentLevel);
-        Save();
-        UpdateUI();
-    }
+    
 
     public void ResetAll()
     {
-        collectedByLevel.Clear();
+        collectedByLevel.Clear();//清除一切存储的数据
         Save();
         UpdateUI();
     }
@@ -121,6 +124,7 @@ public class GameManager : MonoBehaviour
     }
 
     /* ================= 存档 ================= */
+    //我真的看不太懂
 
     private void Save()
     {
@@ -131,19 +135,11 @@ public class GameManager : MonoBehaviour
 
     private void Load()
     {
-        if (!PlayerPrefs.HasKey("COLLECT_DATA")) return;
+        if (!PlayerPrefs.HasKey("COLLECT_DATA")) 
+            return;
         var data = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString("COLLECT_DATA"));
         collectedByLevel = data.ToDictionary();
     }
-    // ================== 生命周期兜底保存 ==================
-    private void OnApplicationQuit()
-    {
-        Save();
-    }
-
-    
-
-
     [System.Serializable]
     private class SaveData
     {

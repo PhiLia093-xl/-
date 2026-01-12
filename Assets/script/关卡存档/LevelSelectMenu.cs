@@ -11,10 +11,10 @@ public class LevelSelectMenu : MonoBehaviour
 
     void Start()
     {
-        int maxLevel = PlayerPrefs.GetInt("MaxLevel", 1);
+        int maxLevel = PlayerPrefs.GetInt("MaxLevel", 1);//MaxLevel属于PlayerPref里面的字段，会自动生成
         
 
-        for (int i = 0; i < levelButtons.Length; i++)
+        for (int i = 0; i < levelButtons.Length; i++)//对选关界面的按钮进行颜色和可否点击的改变
         {
             int levelIndex = i + 1;
             bool unlocked = levelIndex <= maxLevel;
