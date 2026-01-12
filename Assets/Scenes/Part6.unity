@@ -4989,7 +4989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 712997458}
   - component: {fileID: 712997457}
-  - component: {fileID: 712997456}
+  - component: {fileID: 712997459}
   m_Layer: 0
   m_Name: ZoomZone
   m_TagString: Untagged
@@ -4997,20 +4997,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &712997456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712997455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395a97ff4f19e1d4cbc86b82815e3545, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoomInSize: 10
-  defaultSize: 5
 --- !u!61 &712997457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5071,6 +5057,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &712997459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712997455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4c9ec3a7f5371448927c3a75852037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomedSize: 10
+  normalSize: 5
+  smoothTime: 0.5
 --- !u!1001 &725698330
 PrefabInstance:
   m_ObjectHideFlags: 0
