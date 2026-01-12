@@ -25,11 +25,9 @@ public class RoomAutoReturnRotator_RoomOnly : MonoBehaviour
             // 松手：自动回正
             if (Mathf.Abs(currentAngle) > snapThreshold)
             {
-                currentAngle = Mathf.MoveTowards(
-                    currentAngle,
-                    0f,
-                    returnSpeed * Time.deltaTime
-                );
+                currentAngle = Mathf.MoveTowards(currentAngle,0f, returnSpeed * Time.deltaTime);
+
+
             }
             else
             {
@@ -48,6 +46,7 @@ public class RoomAutoReturnRotator_RoomOnly : MonoBehaviour
         // 离开房间时，强制开始回正
         if (!canRotate && Mathf.Abs(currentAngle) > 0.01f)
         {
+            currentAngle = Mathf.MoveTowards(currentAngle, 0f, returnSpeed * Time.deltaTime);
             // 不清角度，让它自然回正
         }
     }
