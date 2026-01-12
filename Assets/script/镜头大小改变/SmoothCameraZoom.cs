@@ -13,12 +13,7 @@ public class SmoothCameraZoom : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        if (cam == null)
-        {
-            Debug.LogError("Main Camera not found!");
-            enabled = false;
-            return;
-        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -37,14 +32,10 @@ public class SmoothCameraZoom : MonoBehaviour
         }
     }
 
-    void LateUpdate()
+    void LateUpdate()//LateUpdate确保玩家移动完后再调整镜头
     {
         float targetSize = isZoomed ? zoomedSize : normalSize;
-        cam.orthographicSize = Mathf.SmoothDamp(
-            cam.orthographicSize,
-            targetSize,
-            ref currentVelocity,
-            smoothTime
-        );
+        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, targetSize, ref currentVelocity, smoothTime);
+        
     }
 }

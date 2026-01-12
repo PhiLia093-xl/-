@@ -12,7 +12,7 @@ public class LevelSelectMenu : MonoBehaviour
     void Start()
     {
         int maxLevel = PlayerPrefs.GetInt("MaxLevel", 1);
-        Debug.Log("当前最大解锁关卡：" + maxLevel);
+        
 
         for (int i = 0; i < levelButtons.Length; i++)
         {
