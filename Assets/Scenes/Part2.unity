@@ -2414,7 +2414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 184.0639, y: -136}
+  m_AnchoredPosition: {x: 184.06396, y: -136}
   m_SizeDelta: {x: 183.41003, y: 58.570007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501494183
@@ -3614,7 +3614,7 @@ GameObject:
   - component: {fileID: 744139632}
   - component: {fileID: 744139631}
   - component: {fileID: 744139630}
-  - component: {fileID: 744139629}
+  - component: {fileID: 744139633}
   m_Layer: 5
   m_Name: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
   m_TagString: Untagged
@@ -3642,18 +3642,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -148}
   m_SizeDelta: {x: 432.25, y: 103.31}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &744139629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744139627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66465f34e9573a145a9a9864404225be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &744139630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3698,9 +3686,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 744139629}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: ToStart
+      - m_Target: {fileID: 744139633}
+        m_TargetAssemblyTypeName: Fix, Assembly-CSharp
+        m_MethodName: SceneChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3748,6 +3736,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744139627}
   m_CullTransparentMesh: 1
+--- !u!114 &744139633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744139627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f3d04f0ef40c7469afd6492ed4d3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &756283528
 GameObject:
   m_ObjectHideFlags: 0
@@ -5797,7 +5797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 184.0639, y: -58}
+  m_AnchoredPosition: {x: 184.06396, y: -58}
   m_SizeDelta: {x: 183.41003, y: 58.570007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1342155552

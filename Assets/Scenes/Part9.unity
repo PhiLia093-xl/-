@@ -2212,7 +2212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 134.18, y: -45.537994}
+  m_AnchoredPosition: {x: 134.17993, y: -45.537964}
   m_SizeDelta: {x: 384.71, y: 154.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279149436
@@ -9940,7 +9940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -190.87006, y: 326.23}
+  m_AnchoredPosition: {x: -190.87012, y: 326.23}
   m_SizeDelta: {x: 381.74, y: 652.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &911804142
@@ -16940,6 +16940,7 @@ GameObject:
   - component: {fileID: 1519933268}
   - component: {fileID: 1519933267}
   - component: {fileID: 1519933266}
+  - component: {fileID: 1519933270}
   m_Layer: 5
   m_Name: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
   m_TagString: Untagged
@@ -17023,9 +17024,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1519933266}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: ToStart
+      - m_Target: {fileID: 1519933270}
+        m_TargetAssemblyTypeName: Fix, Assembly-CSharp
+        m_MethodName: SceneChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17073,6 +17074,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519933264}
   m_CullTransparentMesh: 1
+--- !u!114 &1519933270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519933264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f3d04f0ef40c7469afd6492ed4d3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1526517337
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21956,7 +21969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129.97998, y: -131.6}
+  m_AnchoredPosition: {x: 129.97998, y: -131.59998}
   m_SizeDelta: {x: 347.96, y: 132.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1735920964

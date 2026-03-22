@@ -13992,6 +13992,7 @@ GameObject:
   - component: {fileID: 1855767323}
   - component: {fileID: 1855767322}
   - component: {fileID: 1855767321}
+  - component: {fileID: 1855767324}
   - component: {fileID: 1855767320}
   m_Layer: 5
   m_Name: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
@@ -14076,9 +14077,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1855767320}
-        m_TargetAssemblyTypeName: Button, Assembly-CSharp
-        m_MethodName: ToStart
+      - m_Target: {fileID: 1855767324}
+        m_TargetAssemblyTypeName: Fix, Assembly-CSharp
+        m_MethodName: SceneChange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14126,6 +14127,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855767318}
   m_CullTransparentMesh: 1
+--- !u!114 &1855767324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855767318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f3d04f0ef40c7469afd6492ed4d3e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1871141194 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6475071770206180855, guid: bc9adbfdfc837e4448d01349b7c654c2, type: 3}
@@ -14528,7 +14541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -190.87006, y: 326.23}
+  m_AnchoredPosition: {x: -190.87012, y: 326.23}
   m_SizeDelta: {x: 381.74, y: 652.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1948586058
